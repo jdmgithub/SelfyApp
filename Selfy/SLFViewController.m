@@ -8,6 +8,7 @@
 
 #import "SLFViewController.h"
 #import <Parse/Parse.h>
+#import "SLFTableViewController.h"
 
 
 @interface SLFViewController () 
@@ -16,6 +17,9 @@
     UITextField * password;
     UIButton * submit;
     UIView * newForm;
+
+    SLFTableViewController * TVC;
+    
     
 }
 
@@ -30,6 +34,7 @@
     if (self) {
         // Custom initialization
 
+        
         newForm = [[UIView alloc] initWithFrame:self.view.frame];
  
         [self.view addSubview:newForm];
@@ -82,10 +87,28 @@
  
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen)];
         [self.view addGestureRecognizer:tap];
-    
+ 
+
+        
+ //       self.navigationController.navigationBarHidden = YES;
+        
+        
     }
     return self;
 }
+
+
+
+
+//  Hide Navigation Bar
+
+- (void)viewWillAppear:(BOOL)animated   {self.navigationController.navigationBar.hidden = YES;}
+
+
+
+
+
+
 
 
 -(void)tapScreen
@@ -128,6 +151,8 @@
     [user saveInBackground];
 
 
+
+    
     
 }
 
@@ -140,9 +165,29 @@
     [textField resignFirstResponder];
     
     return YES;
+}
 
+
+
+-(void)addTableViewController:(SLFTableViewController* )viewController
+
+{
+    
+    TVC = viewController;
+    // dictionary into an array
+    
+ //   [self pushViewController:viewController animated:NO];
+    
+    
+    
     
 }
+
+
+
+
+
+
 
 - (void)viewDidLoad
 {

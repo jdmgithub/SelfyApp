@@ -135,6 +135,11 @@
 
 
 
+//  Show Navigation Bar
+
+- (void)viewWillAppear:(BOOL)animated   {self.navigationController.navigationBar.hidden = NO;}
+
+
 
 
 

@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import "SLFViewController.h"
 #import "SLFSelfyViewController.h"
+#import "SLFNavController.h"
 
 @implementation SLFAppDelegate
 
@@ -35,7 +36,27 @@
 //    self.window.rootViewController = [[SLFViewController alloc] initWithNibName:nil bundle:nil];
 
 // Selfie View Controller
-    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+//    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+    
+
+    
+//    self.window.rootViewController = [[SLFNavController alloc] initWithRootViewController:[[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain]];
+
+    
+
+    
+    
+    // Navigation Controller with Launcher Secondary Root
+    self.window.rootViewController = [[SLFNavController alloc] initWithRootViewController:[[SLFViewController alloc] initWithNibName:nil bundle:nil]];
+    
+
+    
+
+
+    
+//    SLFNavController * nc = [[SLFNavController alloc] init];
+//    self.window.rootViewController = nc;
+    
     
     
     self.window.backgroundColor = [UIColor whiteColor];
