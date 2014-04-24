@@ -19,9 +19,18 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-  
-    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
-                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
+
+    
+// Jo's App Key for Class
+//    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
+//                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
+ 
+    
+ // My App Key
+    [Parse setApplicationId:@"vixMElOFMEOQF4zumzPtumQ2LzuSdSn1vMxxANSj"
+                  clientKey:@"jQxPq82XVQfEFjXgoViMkctPIqfRDTc8jaoE0BfA"];
+    
+    
     
     [PFUser enableAutomaticUser];
     
@@ -35,8 +44,32 @@
 //    self.window.rootViewController = [[SLFViewController alloc] initWithNibName:nil bundle:nil];
 
 // Selfie View Controller
-    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+//    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+ 
     
+    UINavigationController * navController;
+    
+    PFUser * user = [PFUser currentUser];
+    
+    NSString * username = user.username;
+
+    
+// Launches different controllers if/if not logged in.  Only have username if logged in.  Logged in goes to TVC.  If Not, Launch VC.
+    
+    if (username == nil)
+    {
+    navController = [[UINavigationController alloc] initWithRootViewController:[[SLFViewController alloc] initWithNibName:nil bundle:nil]];
+        navController.navigationBarHidden = YES;
+
+    } else {
+        
+        navController = [[UINavigationController alloc] initWithRootViewController:[[SLFTableViewController alloc] initWithNibName:nil bundle:nil]];
+    }
+    
+    
+    
+
+    self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

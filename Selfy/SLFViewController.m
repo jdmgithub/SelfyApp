@@ -8,6 +8,7 @@
 
 #import "SLFViewController.h"
 #import <Parse/Parse.h>
+#import "SLFTableViewController.h"
 
 
 @interface SLFViewController () 
@@ -75,7 +76,7 @@
         submit.backgroundColor = [UIColor lightGrayColor];
         submit.layer.cornerRadius = 10;
         [submit setTitle:@" Sign In" forState:normal];
-        [submit addTarget:self action:@selector(newUser) forControlEvents:UIControlEventTouchUpInside];
+        [submit addTarget:self action:@selector(signIn) forControlEvents:UIControlEventTouchUpInside];
 
         
         [newForm addSubview:submit];
@@ -117,7 +118,7 @@
 
 
 
--(void)newUser
+-(void)signIn
 
 {
     PFUser * user = [PFUser currentUser];
@@ -125,8 +126,40 @@
     user.username = @"Jeffery Moulds";
     user.password = @"password";
     
-    [user saveInBackground];
+    username.text = nil;
+    password.text = nil;
+    
 
+//  UIActivityIndicatorView
+    
+    // method begins with Start.
+    
+  //  Add to subview somewhere.
+    
+    
+//    [user saveInBackground];
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+   
+        // login errors at parse
+     if (error == nil)
+     {
+         
+         self.navigationController.navigationBarHidden = NO;
+         self.navigationController.viewControllers = @[[[SLFTableViewController alloc] initWithStyle:UITableViewStyleGrouped]];
+         
+     } else {
+
+        
+//         UIAlertViewStyleLoginAndPasswordInput * alert = [[UIAlertViewStyleLoginAndPasswordInput alloc] init
+   
+         //  error.userinfo[@"error"]
+         //  UIAlertView with message
+ 
+         // acitivy inidiator remove if error i.e. from superview.  
+     }
+        
+        
+    }];
 
     
 }

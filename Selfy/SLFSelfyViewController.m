@@ -113,6 +113,8 @@
 
 
 
+
+
 -(void)cameraTap
 
 {
@@ -142,6 +144,14 @@ testObject[@"image"] = @"";
 testObject[@"caption"] = @"Test Caption";
 [testObject saveInBackground];
 
+    
+//PFOBject with class name "UserSelfy"
+//put a png file inside app
+// PFFile
+    
+    
+    
+    
 }
 
 
