@@ -48,6 +48,10 @@
         username.leftViewMode = UITextFieldViewModeAlways;
    
         username.keyboardType = UIKeyboardTypeTwitter;
+
+        ///////////////   ????????? did this fix autocap?
+        username.autocapitalizationType = NO;
+        
         
         username.delegate = self;
         
@@ -119,15 +123,31 @@
 
 
 -(void)signIn
+// turn off auto cap prompt   fixed above?
+// make it animate up with keyboard
+
+
+
 
 {
     PFUser * user = [PFUser currentUser];
     
-    user.username = @"Jeffery Moulds";
-    user.password = @"password";
+    user.username = username.text;
+    user.password = password.text;
     
     username.text = nil;
     password.text = nil;
+
+
+    UIActivityIndicatorView * activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.color = [UIColor orangeColor];
+    
+    activityIndicator.frame = CGRectMake(0, 150, 50, 50);
+    
+    
+    [activityIndicator startAnimating];
+    [self.view addSubview:activityIndicator];
+    
     
 
 //  UIActivityIndicatorView
@@ -143,15 +163,23 @@
         // login errors at parse
      if (error == nil)
      {
+     
+         
          
          self.navigationController.navigationBarHidden = NO;
          self.navigationController.viewControllers = @[[[SLFTableViewController alloc] initWithStyle:UITableViewStyleGrouped]];
          
      } else {
 
+         [activityIndicator removeFromSuperview];
         
-//         UIAlertViewStyleLoginAndPasswordInput * alert = [[UIAlertViewStyleLoginAndPasswordInput alloc] init
-   
+         NSString * errorDescription = error.userInfo[@"error"];
+         
+         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"Login Error" message:errorDescription delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles:nil];
+         
+         
+         [alertView show];
+         
          //  error.userinfo[@"error"]
          //  UIAlertView with message
  

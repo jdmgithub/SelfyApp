@@ -35,72 +35,74 @@
         // Custom initialization
 
         // header
-
-        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-        header.backgroundColor = [UIColor lightGrayColor];
         
-        [self.view addSubview:header];
+        
+        
+        selfies = [@[
+                     
+                     
+                     @{
+                         
+                         @"image" : @"http://distilleryimage7.ak.instagram.com/6756ea06a44b11e2b62722000a1fbc10_7.jpg",
+                         @"caption" : @"This is a selfy!",
+                         @"user_id" : @"3n2mb23bnm",
+                         @"avatar" : @"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/036/354/393842f.jpg",
+                         @"selfy_id" : @"hjk2l32bn1"
+                         
+                         }
+                     
+                     
+                     
+                     //
+                     //  @{@"image"   : [UIImage imageNamed:@"JohnYam"],
+                     //                         @"caption" : @"IOS Programmer TO BE",
+                     //                         @"user_id" : @"Jeffery Moulds",
+                     //                         @"avatar"  : @"url",
+                     //                         @"selfy_id" : @"hfdskl;fjds;l"
+                     //                         }
+                     
+                     ] mutableCopy];
+
+
+//        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+//        header.backgroundColor = [UIColor lightGrayColor];
+//        
+//        [self.view addSubview:header];
         
  //       [settingsButton = [UIButtonTypeContactAdd];
         
         
         
         
-        settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-        settingsButton.backgroundColor = [UIColor darkGrayColor];
-        settingsButton.layer.cornerRadius = 15;
-        [settingsButton setTitle:@"S" forState:UIControlStateNormal];
-        settingsButton.titleLabel.font = [UIFont systemFontOfSize:18];
-
-
+//        settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
+//        settingsButton.backgroundColor = [UIColor darkGrayColor];
+//        settingsButton.layer.cornerRadius = 15;
+//        [settingsButton setTitle:@"S" forState:UIControlStateNormal];
+//        settingsButton.titleLabel.font = [UIFont systemFontOfSize:18];
+//
+//
+//        
+//        [header addSubview:settingsButton];
         
-        [header addSubview:settingsButton];
-        
-        editButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 10, 30, 30)];
-        editButton.backgroundColor = [UIColor darkGrayColor];
-        editButton.layer.cornerRadius = 15;
-        [editButton setTitle:@"+" forState:UIControlStateNormal];
-        editButton.titleLabel.font = [UIFont systemFontOfSize:18];
-
-        
-        [header addSubview:editButton];
+//        editButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 10, 30, 30)];
+//        editButton.backgroundColor = [UIColor darkGrayColor];
+//        editButton.layer.cornerRadius = 15;
+//        [editButton setTitle:@"+" forState:UIControlStateNormal];
+//        editButton.titleLabel.font = [UIFont systemFontOfSize:18];
+//
+//        
+//        [header addSubview:editButton];
         
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         
 
-        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, 60, 70)];
-        titleHeader.text = @"Selfy";
-        titleHeader.textColor = [UIColor blackColor];
-        titleHeader.font = [UIFont systemFontOfSize:24];
-        
-        [header addSubview:titleHeader];
+//        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, 60, 70)];
+//        titleHeader.text = @"Selfy";
+//        titleHeader.textColor = [UIColor blackColor];
+//        titleHeader.font = [UIFont systemFontOfSize:24];
+//        
+//        [header addSubview:titleHeader];
 
-
-        
-        selfies = [@[
-                       
- 
-                   @{
-                       
-                       @"image" : @"http://distilleryimage7.ak.instagram.com/6756ea06a44b11e2b62722000a1fbc10_7.jpg",
-                       @"caption" : @"This is a selfy!",
-                       @"user_id" : @"3n2mb23bnm",
-                       @"avatar" : @"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/036/354/393842f.jpg",
-                       @"selfy_id" : @"hjk2l32bn1"
-                       
-                       }
-  
-  
-  
-//  
-//  @{@"image"   : [UIImage imageNamed:@"JohnYam"],
-//                         @"caption" : @"IOS Programmer TO BE",
-//                         @"user_id" : @"Jeffery Moulds",
-//                         @"avatar"  : @"url",
-//                         @"selfy_id" : @"hfdskl;fjds;l"
-//                         }
-                   
-                       ] mutableCopy];
 
 
 // Move to SelfyViewController
@@ -150,9 +152,28 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UIBarButtonItem * addNewSelfyButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(openNewSelfy)];
+    
+    self.navigationItem.rightBarButtonItem = addNewSelfyButton;
+
+    
+
     
 }
+
+-(void)openNewSelfy
+
+{
+
+    
+    
+
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

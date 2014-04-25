@@ -20,6 +20,7 @@
 		1B1277FE1905891B00D7D11F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1B1277FC1905891B00D7D11F /* InfoPlist.strings */; };
 		1B1278001905891B00D7D11F /* SelfyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1277FF1905891B00D7D11F /* SelfyTests.m */; };
 		1B12780B1905894A00D7D11F /* SLFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B12780A1905894A00D7D11F /* SLFTableViewController.m */; };
+		1B1BC132190A9D65002CEE40 /* river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BC131190A9D65002CEE40 /* river.jpg */; };
 		1B47084E1906940700492026 /* JefferyMoulds.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084D1906940700492026 /* JefferyMoulds.png */; };
 		1B4708501906966900492026 /* JohnYam.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084F1906966900492026 /* JohnYam.png */; };
 		1B4708521906B89500492026 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4708511906B89500492026 /* Parse.framework */; };
@@ -67,6 +68,7 @@
 		1B1277FF1905891B00D7D11F /* SelfyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelfyTests.m; sourceTree = "<group>"; };
 		1B1278091905894A00D7D11F /* SLFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFTableViewController.h; sourceTree = "<group>"; };
 		1B12780A1905894A00D7D11F /* SLFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFTableViewController.m; sourceTree = "<group>"; };
+		1B1BC131190A9D65002CEE40 /* river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = river.jpg; sourceTree = "<group>"; };
 		1B47084D1906940700492026 /* JefferyMoulds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JefferyMoulds.png; path = "../../../../Desktop/Class Images/JefferyMoulds.png"; sourceTree = "<group>"; };
 		1B47084F1906966900492026 /* JohnYam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JohnYam.png; path = "../../../../Desktop/Class Images/JohnYam.png"; sourceTree = "<group>"; };
 		1B4708511906B89500492026 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		1B47084C190693F300492026 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B1BC131190A9D65002CEE40 /* river.jpg */,
 				1B47084D1906940700492026 /* JefferyMoulds.png */,
 				1B47084F1906966900492026 /* JohnYam.png */,
 				1B4708711906FFFB00492026 /* cameraIcon.png */,
@@ -297,6 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1BC132190A9D65002CEE40 /* river.jpg in Resources */,
 				1B4708721906FFFB00492026 /* cameraIcon.png in Resources */,
 				1B4708501906966900492026 /* JohnYam.png in Resources */,
 				1B1277E51905891B00D7D11F /* InfoPlist.strings in Resources */,

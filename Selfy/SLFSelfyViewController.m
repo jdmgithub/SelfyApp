@@ -7,6 +7,8 @@
 //
 
 #import "SLFSelfyViewController.h"
+#import "Parse/Parse.h"
+
 
 @interface SLFSelfyViewController ()
 
@@ -111,7 +113,28 @@
 }
 
 
+-(void)newSelfy
+{
 
+    UIImage * image = [UIImage imageNamed:@"river"];
+    
+    NSData * imageData = UIImagePNGRepresentation(image);
+    
+    
+    // All from parse faq
+    PFFile * imageFile = [PFFile fileWithName:@"coolRiver.png" data:imageData];
+    
+    PFObject * newSelfy = [PFObject objectWithClassName:@"userSelfy"];
+    
+    newSelfy[@"caption"] = captionField.text;
+    
+    newSelfy[@"image"] = imageFile;
+    
+    [newSelfy saveInBackground];
+    
+    
+
+}
 
 
 

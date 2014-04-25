@@ -37,7 +37,7 @@
     
 
 //  Table View Controller
-//    self.window.rootViewController = [[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    self.window.rootViewController = [[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain];
     
     
 //  Launch View Controller
@@ -63,12 +63,12 @@
 
     } else {
         
-        navController = [[UINavigationController alloc] initWithRootViewController:[[SLFTableViewController alloc] initWithNibName:nil bundle:nil]];
+        navController = [[UINavigationController alloc] initWithRootViewController:[[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain]];
     }
-    
-    
-    
-
+//
+//    
+//    
+//
     self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];
