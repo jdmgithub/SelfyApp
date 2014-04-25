@@ -89,7 +89,9 @@
         
         UITapGestureRecognizer * cameraImageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cameraTap)];
         [cameraButton addGestureRecognizer:cameraImageTap];
+   
         
+        self.view.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -184,10 +186,24 @@ testObject[@"caption"] = @"Test Caption";
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    UIBarButtonItem * cancelNewSelfyButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelNewSelfy)];
+    
+    cancelNewSelfyButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = cancelNewSelfyButton;
+
+    [self setNeedsStatusBarAppearanceUpdate];
+    
 }
 
 
+-(void)cancelNewSelfy
 
+{
+   
+    
+    
+}
 
 
 
@@ -207,5 +223,12 @@ testObject[@"caption"] = @"Test Caption";
     // Pass the selected object to the new view controller.
 }
 */
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+
+}
+
 
 @end

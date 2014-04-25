@@ -9,6 +9,7 @@
 #import "SLFTableViewController.h"
 #import "SLFTableViewCell.h"
 #import <Parse/Parse.h>
+#import "SLFSelfyViewController.h"
 
 @interface SLFTableViewController ()
 
@@ -158,6 +159,10 @@
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
 
     
+  
+    
+    
+    
 
     
 }
@@ -166,10 +171,28 @@
 
 {
 
+    SLFSelfyViewController * newSelfyVC = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+
+// created a new navigation controller to slide up
+    UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:newSelfyVC];
+
+    nc.navigationBar.barTintColor = BLUE_COLOR;
+//    nc.navigationBar.translucent = NO;
     
+
+
+
+    
+    [self.navigationController presentViewController:nc animated:YES completion:^{
+    
+        
+    }];
     
 
 }
+
+
+
 
 
 
