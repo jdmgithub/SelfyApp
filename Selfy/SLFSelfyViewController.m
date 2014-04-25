@@ -136,6 +136,8 @@
 }
 
 
+
+
 -(void)createNewSelfy
 
 {
@@ -145,6 +147,11 @@ testObject[@"caption"] = @"Test Caption";
 [testObject saveInBackground];
 
     
+NSData *data = [@"imageUpload" dataUsingEncoding:NSUTF8StringEncoding];
+PFFile *file = [PFFile fileWithName:@"fireholeRiver.png" data:data];
+    
+[file saveInBackground];
+
 //PFOBject with class name "UserSelfy"
 //put a png file inside app
 // PFFile

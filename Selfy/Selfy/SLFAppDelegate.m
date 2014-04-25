@@ -9,7 +9,7 @@
 #import "SLFAppDelegate.h"
 #import "SLFTableViewController.h"
 #import <Parse/Parse.h>
-#import "SLFViewController.h"
+#import "SLFViewLaunchController.h"
 #import "SLFSelfyViewController.h"
 
 @implementation SLFAppDelegate
@@ -41,10 +41,10 @@
     
     
 //  Launch View Controller
-//    self.window.rootViewController = [[SLFViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = [[SLFViewController alloc] initWithNibName:nil bundle:nil];
 
 // Selfie View Controller
-//    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
  
     
     UINavigationController * navController;
@@ -58,7 +58,7 @@
     
     if (username == nil)
     {
-    navController = [[UINavigationController alloc] initWithRootViewController:[[SLFViewController alloc] initWithNibName:nil bundle:nil]];
+    navController = [[UINavigationController alloc] initWithRootViewController:[[SLFLaunchViewController alloc] initWithNibName:nil bundle:nil]];
         navController.navigationBarHidden = YES;
 
     } else {

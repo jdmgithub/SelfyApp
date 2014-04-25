@@ -12,5 +12,11 @@
 
 @interface SLFSelfyViewController : UIViewController  <UITextViewDelegate>
 
+//@property (readonly) BOOL isDirty;
+//
+//@property (readonly) BOOL isDataAvailable;
+//
+//@property (assign, readonly) NSString *newSelfyImage;
+
 
 @end
