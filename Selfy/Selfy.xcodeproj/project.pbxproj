@@ -21,6 +21,7 @@
 		1B1278001905891B00D7D11F /* SelfyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1277FF1905891B00D7D11F /* SelfyTests.m */; };
 		1B12780B1905894A00D7D11F /* SLFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B12780A1905894A00D7D11F /* SLFTableViewController.m */; };
 		1B1BC132190A9D65002CEE40 /* river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BC131190A9D65002CEE40 /* river.jpg */; };
+		1B1BC137190AEB78002CEE40 /* SLFNewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BC136190AEB78002CEE40 /* SLFNewNavigationController.m */; };
 		1B47084E1906940700492026 /* JefferyMoulds.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084D1906940700492026 /* JefferyMoulds.png */; };
 		1B4708501906966900492026 /* JohnYam.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084F1906966900492026 /* JohnYam.png */; };
 		1B4708521906B89500492026 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4708511906B89500492026 /* Parse.framework */; };
@@ -69,6 +70,8 @@
 		1B1278091905894A00D7D11F /* SLFTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFTableViewController.h; sourceTree = "<group>"; };
 		1B12780A1905894A00D7D11F /* SLFTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFTableViewController.m; sourceTree = "<group>"; };
 		1B1BC131190A9D65002CEE40 /* river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = river.jpg; sourceTree = "<group>"; };
+		1B1BC135190AEB78002CEE40 /* SLFNewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFNewNavigationController.h; sourceTree = "<group>"; };
+		1B1BC136190AEB78002CEE40 /* SLFNewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFNewNavigationController.m; sourceTree = "<group>"; };
 		1B47084D1906940700492026 /* JefferyMoulds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JefferyMoulds.png; path = "../../../../Desktop/Class Images/JefferyMoulds.png"; sourceTree = "<group>"; };
 		1B47084F1906966900492026 /* JohnYam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JohnYam.png; path = "../../../../Desktop/Class Images/JohnYam.png"; sourceTree = "<group>"; };
 		1B4708511906B89500492026 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		1B1277CE1905891B00D7D11F = {
 			isa = PBXGroup;
 			children = (
+				1B1BC135190AEB78002CEE40 /* SLFNewNavigationController.h */,
+				1B1BC136190AEB78002CEE40 /* SLFNewNavigationController.m */,
 				1B47086E1906D97500492026 /* SLFSelfyViewController.h */,
 				1B47086F1906D97500492026 /* SLFSelfyViewController.m */,
 				1B47086B1906CE9900492026 /* SLFViewController.h */,
@@ -325,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B47086D1906CE9900492026 /* SLFViewController.m in Sources */,
+				1B1BC137190AEB78002CEE40 /* SLFNewNavigationController.m in Sources */,
 				1B1277EB1905891B00D7D11F /* SLFAppDelegate.m in Sources */,
 				1B499ABC190594030029D117 /* SLFTableViewCell.m in Sources */,
 				1B1277E71905891B00D7D11F /* main.m in Sources */,

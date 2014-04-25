@@ -29,69 +29,22 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
 
+        self.view.backgroundColor = [UIColor whiteColor];
 
-        // shift up view with keyboard popup - makes a view of the screen with all its objects and shifts them.  So you dont have to shift up all the objects indivudially.  
-        newForm = [[UIView alloc] initWithFrame:self.view.frame];
-                   
-//  CGRectMake(20, 20, 280, self.view.frame.size.height -40)];
-        
-        [self.view addSubview:newForm];
-        
-        
-// used UITextview to wrap the text instead of UITextfield
-        captionField = [[UITextView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 140, 330, 280, 50)];
-        captionField.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
-        captionField.layer.cornerRadius = 6;
-//        captionField.placeholder = @"Enter pithy comments here...";  // placeholder text
-        captionField.tintColor =[UIColor blackColor];  // changes cursor color
-        captionField.keyboardType = UIKeyboardTypeTwitter;
-        
-        captionField.delegate = self;
-
-        [newForm addSubview:captionField];
-
-        
-        submit = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 400, 160, 30)];
-        submit.backgroundColor = [UIColor lightGrayColor];
-        submit.layer.cornerRadius = 8;
-        [submit setTitle:@"New Selfy" forState:normal];
-        [submit addTarget:self action:@selector(createNewSelfy) forControlEvents:UIControlEventTouchUpInside];
-        
-        [newForm addSubview:submit];
-
-        
-        cancel = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 20, 30, 30)];
-        cancel.backgroundColor = [UIColor lightGrayColor];
-        cancel.layer.cornerRadius = 15;
-        [cancel setTitle:@"X" forState:normal];
-
-        [newForm addSubview:cancel];
-
-        
-        cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(35, 60, 250, 250)];
-        cameraButton.backgroundColor = [UIColor lightGrayColor];
-        cameraButton.layer.cornerRadius = 30;
-        [cameraButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-        [cameraButton.layer setBorderWidth:2.0];
-        cameraButton.userInteractionEnabled = YES;
-        
-        cameraButton.image = [UIImage imageNamed:@"cameraIcon"];
-
-
-        [newForm addSubview:cameraButton];
-        
-        
+ 
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen)];
         [self.view addGestureRecognizer:tap];
         
         
         UITapGestureRecognizer * cameraImageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cameraTap)];
         [cameraButton addGestureRecognizer:cameraImageTap];
-   
         
-        self.view.backgroundColor = [UIColor whiteColor];
+        
+// shift up view with keyboard popup - makes a view of the screen with all its objects and shifts them.  So you dont have to shift up all the objects indivudially.
+        
+//  CGRectMake(20, 20, 280, self.view.frame.size.height -40)];
+
     }
     return self;
 }
@@ -102,6 +55,62 @@
 //    return  YES;
 //    
 //}
+
+
+-(void)createForm
+
+{
+
+    newForm = [[UIView alloc] initWithFrame:self.view.frame];
+    
+    [self.view addSubview:newForm];
+    
+    
+    // used UITextview to wrap the text instead of UITextfield
+    captionField = [[UITextView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 140, 350, 280, 50)];
+    captionField.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
+    captionField.layer.cornerRadius = 6;
+    //        captionField.placeholder = @"Enter pithy comments here...";  // placeholder text
+    captionField.tintColor =[UIColor blackColor];  // changes cursor color
+    captionField.keyboardType = UIKeyboardTypeTwitter;
+    
+    captionField.delegate = self;
+    
+    [newForm addSubview:captionField];
+    
+    
+    submit = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 420, 160, 30)];
+    submit.backgroundColor = [UIColor lightGrayColor];
+    submit.layer.cornerRadius = 8;
+    [submit setTitle:@"New Selfy" forState:normal];
+    [submit addTarget:self action:@selector(createNewSelfy) forControlEvents:UIControlEventTouchUpInside];
+    
+    [newForm addSubview:submit];
+    
+    
+    cancel = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 20, 30, 30)];
+    cancel.backgroundColor = [UIColor lightGrayColor];
+    cancel.layer.cornerRadius = 15;
+    [cancel setTitle:@"X" forState:normal];
+    
+    [newForm addSubview:cancel];
+    
+    
+    cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(35, 80, 250, 250)];
+    cameraButton.backgroundColor = [UIColor lightGrayColor];
+    cameraButton.layer.cornerRadius = 30;
+    [cameraButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [cameraButton.layer setBorderWidth:2.0];
+    cameraButton.userInteractionEnabled = YES;
+    
+    cameraButton.image = [UIImage imageNamed:@"cameraIcon"];
+    
+    
+    [newForm addSubview:cameraButton];
+    
+    
+
+}
 
 
 -(void)tapScreen
@@ -161,6 +170,11 @@
 }
 
 
+
+
+
+
+
 -(void)createNewSelfy
 
 {
@@ -187,6 +201,11 @@ testObject[@"caption"] = @"Test Caption";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+
+//    [self createForm];
+
+    
+    
     UIBarButtonItem * cancelNewSelfyButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelNewSelfy)];
     
     cancelNewSelfyButton.tintColor = [UIColor whiteColor];
@@ -197,11 +216,36 @@ testObject[@"caption"] = @"Test Caption";
 }
 
 
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    // stuff will happen / appear and slide with animation.
+    
+    [super viewWillAppear:animated];
+    
+    [self createForm];
+
+
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+
+{
+// stuff wont happen/appear until animation is done.
+
+}
+
+
 -(void)cancelNewSelfy
 
 {
    
-    
+  [self.navigationController dismissViewControllerAnimated:YES completion:^{
+      
+      
+      
+  }];
     
 }
 
@@ -224,11 +268,7 @@ testObject[@"caption"] = @"Test Caption";
 }
 */
 
--(UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
 
-}
 
 
 @end

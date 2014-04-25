@@ -10,6 +10,7 @@
 #import "SLFTableViewCell.h"
 #import <Parse/Parse.h>
 #import "SLFSelfyViewController.h"
+#import "SLFNewNavigationController.h"
 
 @interface SLFTableViewController ()
 
@@ -174,7 +175,7 @@
     SLFSelfyViewController * newSelfyVC = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
 
 // created a new navigation controller to slide up
-    UINavigationController * nc = [[UINavigationController alloc] initWithRootViewController:newSelfyVC];
+    SLFNewNavigationController * nc = [[SLFNewNavigationController alloc] initWithRootViewController:newSelfyVC];
 
     nc.navigationBar.barTintColor = BLUE_COLOR;
 //    nc.navigationBar.translucent = NO;
