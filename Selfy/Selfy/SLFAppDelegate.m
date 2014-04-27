@@ -47,14 +47,18 @@
 //    self.window.rootViewController = [[SLFSelfyViewController alloc] initWithNibName:nil bundle:nil];
  
     
-    UINavigationController * navController;
-    
-    PFUser * user = [PFUser currentUser];
-    
-    NSString * username = user.username;
+   
 
     
 // Launches different controllers if/if not logged in.  Only have username if logged in.  Logged in goes to TVC.  If Not, Launch VC.
+ 
+    
+    
+   UINavigationController * navController;
+    
+    PFUser * user = [PFUser currentUser];
+
+    NSString * username = user.username;
     
     if (username == nil)
     {
@@ -65,10 +69,10 @@
         
         navController = [[UINavigationController alloc] initWithRootViewController:[[SLFTableViewController alloc] initWithStyle:UITableViewStylePlain]];
     }
-//
-//    
-//    
-//
+
+    
+    
+
     self.window.rootViewController = navController;
     
     self.window.backgroundColor = [UIColor whiteColor];

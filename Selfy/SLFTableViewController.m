@@ -20,8 +20,8 @@
 
 
 {
-    UIButton * settingsButton;
-    UIButton * editButton;
+ //   UIButton * settingsButton;
+ //   UIButton * editButton;
     NSMutableArray * selfies;
     
     UIView * selfyView;
@@ -51,8 +51,18 @@
                          @"avatar" : @"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/036/354/393842f.jpg",
                          @"selfy_id" : @"hjk2l32bn1"
                          
-                         }
+                         },
                      
+                     @{
+                         
+                         @"image" : @"magicSquare",
+                         @"caption" : @"Don't Stare Too Long.",
+                         @"user_id" : @"3n2mb23bnm",
+                         @"avatar" : @"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/036/354/393842f.jpg",
+                         @"selfy_id" : @"hjk2l32bn2"
+                         
+                         }
+                   
                      
                      
                      //
@@ -122,26 +132,16 @@
         
         self.tableView.rowHeight = self.tableView.frame.size.width + 100;
 
-      
-        selfyView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 180)];
-        selfyView.backgroundColor = [UIColor lightGrayColor];
-        
+// old header.  Now replaced by UINavigationBar
+//        selfyView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 180)];
+//        selfyView.backgroundColor = [UIColor lightGrayColor];
+//        
 //        [self.contentView addSubview:selfyView];
 
-        
-        
         
     }
     return self;
 }
-
-
-
-
-
-
-
-
 
 
 - (void)viewDidLoad
@@ -180,9 +180,6 @@
     nc.navigationBar.barTintColor = BLUE_COLOR;
 //    nc.navigationBar.translucent = NO;
     
-
-
-
     
     [self.navigationController presentViewController:nc animated:YES completion:^{
     
@@ -191,12 +188,6 @@
     
 
 }
-
-
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -226,7 +217,9 @@
         cell = [[SLFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 
         cell.selfyInfo = selfies[indexPath.row];   //calls the selfies method (setSelfyInfo:(NSDictionary *)selfyInfo) in the tvcell.m
-    
+ 
+//   [self.tableView reloadData];
+
     
     
 //        NSDictionary * listItem = selfy[indexPath.row];

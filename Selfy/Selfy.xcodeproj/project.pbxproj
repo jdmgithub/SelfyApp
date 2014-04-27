@@ -22,6 +22,8 @@
 		1B12780B1905894A00D7D11F /* SLFTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B12780A1905894A00D7D11F /* SLFTableViewController.m */; };
 		1B1BC132190A9D65002CEE40 /* river.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1B1BC131190A9D65002CEE40 /* river.jpg */; };
 		1B1BC137190AEB78002CEE40 /* SLFNewNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BC136190AEB78002CEE40 /* SLFNewNavigationController.m */; };
+		1B3AB7CD190D624F00855BF6 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AB7CC190D624F00855BF6 /* heart.png */; };
+		1B3AB7CF190D6E5000855BF6 /* magicSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3AB7CE190D6E5000855BF6 /* magicSquare.png */; };
 		1B47084E1906940700492026 /* JefferyMoulds.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084D1906940700492026 /* JefferyMoulds.png */; };
 		1B4708501906966900492026 /* JohnYam.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B47084F1906966900492026 /* JohnYam.png */; };
 		1B4708521906B89500492026 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4708511906B89500492026 /* Parse.framework */; };
@@ -72,6 +74,8 @@
 		1B1BC131190A9D65002CEE40 /* river.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = river.jpg; sourceTree = "<group>"; };
 		1B1BC135190AEB78002CEE40 /* SLFNewNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFNewNavigationController.h; sourceTree = "<group>"; };
 		1B1BC136190AEB78002CEE40 /* SLFNewNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFNewNavigationController.m; sourceTree = "<group>"; };
+		1B3AB7CC190D624F00855BF6 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		1B3AB7CE190D6E5000855BF6 /* magicSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magicSquare.png; sourceTree = "<group>"; };
 		1B47084D1906940700492026 /* JefferyMoulds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JefferyMoulds.png; path = "../../../../Desktop/Class Images/JefferyMoulds.png"; sourceTree = "<group>"; };
 		1B47084F1906966900492026 /* JohnYam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = JohnYam.png; path = "../../../../Desktop/Class Images/JohnYam.png"; sourceTree = "<group>"; };
 		1B4708511906B89500492026 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -221,6 +225,8 @@
 		1B47084C190693F300492026 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B3AB7CE190D6E5000855BF6 /* magicSquare.png */,
+				1B3AB7CC190D624F00855BF6 /* heart.png */,
 				1B1BC131190A9D65002CEE40 /* river.jpg */,
 				1B47084D1906940700492026 /* JefferyMoulds.png */,
 				1B47084F1906966900492026 /* JohnYam.png */,
@@ -309,6 +315,8 @@
 				1B4708721906FFFB00492026 /* cameraIcon.png in Resources */,
 				1B4708501906966900492026 /* JohnYam.png in Resources */,
 				1B1277E51905891B00D7D11F /* InfoPlist.strings in Resources */,
+				1B3AB7CF190D6E5000855BF6 /* magicSquare.png in Resources */,
+				1B3AB7CD190D624F00855BF6 /* heart.png in Resources */,
 				1B47084E1906940700492026 /* JefferyMoulds.png in Resources */,
 				1B1277ED1905891B00D7D11F /* Images.xcassets in Resources */,
 			);

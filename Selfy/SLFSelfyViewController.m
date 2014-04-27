@@ -127,13 +127,13 @@
 -(void)newSelfy
 {
 
-    UIImage * image = [UIImage imageNamed:@"river"];
+    UIImage * image = [UIImage imageNamed:@"heart"];
     
     NSData * imageData = UIImagePNGRepresentation(image);
     
     
     // All from parse faq
-    PFFile * imageFile = [PFFile fileWithName:@"coolRiver.png" data:imageData];
+    PFFile * imageFile = [PFFile fileWithName:@"heart.png" data:imageData];
     
     PFObject * newSelfy = [PFObject objectWithClassName:@"userSelfy"];
     

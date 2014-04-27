@@ -186,7 +186,6 @@
          // acitivy inidiator remove if error i.e. from superview.  
      }
         
-        
     }];
 
     
