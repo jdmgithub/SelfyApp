@@ -19,6 +19,7 @@
     UIButton * cancel;
     UIImageView * cameraButton;   
     UIView * newForm;
+    UIImageView * imageView;
 }
 
 @end
@@ -66,6 +67,18 @@
     [self.view addSubview:newForm];
     
     
+    // added to import image to parse
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(35, 80, 250, 250)];
+    
+    imageView.image = [UIImage imageNamed:@"magicSquare"];
+    
+    imageView.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    
+    [newForm addSubview:imageView];
+    
+    
+    
+    
     // used UITextview to wrap the text instead of UITextfield
     captionField = [[UITextView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 140, 350, 280, 50)];
     captionField.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
@@ -83,7 +96,7 @@
     submit.backgroundColor = [UIColor lightGrayColor];
     submit.layer.cornerRadius = 8;
     [submit setTitle:@"New Selfy" forState:normal];
-    [submit addTarget:self action:@selector(createNewSelfy) forControlEvents:UIControlEventTouchUpInside];
+    [submit addTarget:self action:@selector(newSelfy) forControlEvents:UIControlEventTouchUpInside];
     
     [newForm addSubview:submit];
     
@@ -95,7 +108,7 @@
     
     [newForm addSubview:cancel];
     
-    
+// not used now.  Using imageview above now
     cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(35, 80, 250, 250)];
     cameraButton.backgroundColor = [UIColor lightGrayColor];
     cameraButton.layer.cornerRadius = 30;
@@ -106,7 +119,7 @@
     cameraButton.image = [UIImage imageNamed:@"cameraIcon"];
     
     
-    [newForm addSubview:cameraButton];
+//    [newForm addSubview:cameraButton];
     
     
 
@@ -127,25 +140,40 @@
 -(void)newSelfy
 {
 
-    UIImage * image = [UIImage imageNamed:@"river"];
-    
-    NSData * imageData = UIImagePNGRepresentation(image);
+    NSData * imageData = UIImagePNGRepresentation(imageView.image);
     
     
     // All from parse faq
-    PFFile * imageFile = [PFFile fileWithName:@"coolRiver.png" data:imageData];
+    PFFile * imageFile = [PFFile fileWithName:@"image.png" data:imageData];
     
-    PFObject * newSelfy = [PFObject objectWithClassName:@"userSelfy"];
+    PFObject * newSelfy = [PFObject objectWithClassName:@"UserSelfy"];
     
     newSelfy[@"caption"] = captionField.text;
     
     newSelfy[@"image"] = imageFile;
     
-    [newSelfy saveInBackground];
+ //   [newSelfy saveInBackground];
+    
+    [newSelfy saveInBackgroundWithBlock:^(BOOL succeed, NSError * error) {
+        [self cancelNewSelfy];
+    
+    }];
+    
+// connect current user to newSefly as parent : Parse relational data to create a parent
     
     
-
 }
+
+
+-(void)cancelNewSelfy
+
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+    }];
+    
+}
+
+
 
 
 
@@ -168,31 +196,6 @@
     }];
     
 }
-
-
-
-
-
-
-
--(void)createNewSelfy
-
-{
-PFObject *testObject = [PFObject objectWithClassName:@"UserSelfy"];
-testObject[@"image"] = @"";
-testObject[@"caption"] = @"Test Caption";
-[testObject saveInBackground];
-
-    
-//PFOBject with class name "UserSelfy"
-//put a png file inside app
-// PFFile
-    
-    
-    
-    
-}
-
 
 - (void)viewDidLoad
 {
@@ -237,17 +240,7 @@ testObject[@"caption"] = @"Test Caption";
 }
 
 
--(void)cancelNewSelfy
 
-{
-   
-  [self.navigationController dismissViewControllerAnimated:YES completion:^{
-      
-      
-      
-  }];
-    
-}
 
 
 

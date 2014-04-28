@@ -22,7 +22,7 @@
 {
     UIButton * settingsButton;
     UIButton * editButton;
-    NSMutableArray * selfies;
+    NSArray * selfies;
     
     UIView * selfyView;
     UIImage * selfyImage;
@@ -36,89 +36,12 @@
     if (self) {
         // Custom initialization
 
-        // header
+      
         
-        
-        
-        selfies = [@[
-                     
-                     
-                     @{
-                         
-                         @"image" : @"http://distilleryimage7.ak.instagram.com/6756ea06a44b11e2b62722000a1fbc10_7.jpg",
-                         @"caption" : @"This is a selfy!",
-                         @"user_id" : @"3n2mb23bnm",
-                         @"avatar" : @"https://media.licdn.com/mpr/mpr/shrink_200_200/p/4/005/036/354/393842f.jpg",
-                         @"selfy_id" : @"hjk2l32bn1"
-                         
-                         }
-                     
-                     
-                     
-                     //
-                     //  @{@"image"   : [UIImage imageNamed:@"JohnYam"],
-                     //                         @"caption" : @"IOS Programmer TO BE",
-                     //                         @"user_id" : @"Jeffery Moulds",
-                     //                         @"avatar"  : @"url",
-                     //                         @"selfy_id" : @"hfdskl;fjds;l"
-                     //                         }
-                     
-                     ] mutableCopy];
-
-
-//        UIView * header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
-//        header.backgroundColor = [UIColor lightGrayColor];
-//        
-//        [self.view addSubview:header];
-        
- //       [settingsButton = [UIButtonTypeContactAdd];
-        
-        
-        
-        
-//        settingsButton = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 30, 30)];
-//        settingsButton.backgroundColor = [UIColor darkGrayColor];
-//        settingsButton.layer.cornerRadius = 15;
-//        [settingsButton setTitle:@"S" forState:UIControlStateNormal];
-//        settingsButton.titleLabel.font = [UIFont systemFontOfSize:18];
-//
-//
-//        
-//        [header addSubview:settingsButton];
-        
-//        editButton = [[UIButton alloc] initWithFrame:CGRectMake(280, 10, 30, 30)];
-//        editButton.backgroundColor = [UIColor darkGrayColor];
-//        editButton.layer.cornerRadius = 15;
-//        [editButton setTitle:@"+" forState:UIControlStateNormal];
-//        editButton.titleLabel.font = [UIFont systemFontOfSize:18];
-//
-//        
-//        [header addSubview:editButton];
+ //       [self refreshSelfies];
         
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         
-
-//        UILabel * titleHeader = [[UILabel alloc] initWithFrame:CGRectMake(130, 0, 60, 70)];
-//        titleHeader.text = @"Selfy";
-//        titleHeader.textColor = [UIColor blackColor];
-//        titleHeader.font = [UIFont systemFontOfSize:24];
-//        
-//        [header addSubview:titleHeader];
-
-
-
-// Move to SelfyViewController
-//        PFObject *testObject = [PFObject objectWithClassName:@"UserSelfy"];
-//        testObject[@"image"] = @"";
-//        testObject[@"caption"] = @"Test Caption";
-//        [testObject saveInBackground];
-        
-//        PFUser * user = [PFUser currentUser];
-        
-//        user.username = @"jefferymoulds";
-//        user.password = @"password";
-//        
-//        [user saveInBackground];
         
         self.tableView.rowHeight = self.tableView.frame.size.width + 100;
 
@@ -126,20 +49,11 @@
         selfyView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 180)];
         selfyView.backgroundColor = [UIColor lightGrayColor];
         
-//        [self.contentView addSubview:selfyView];
-
-        
         
         
     }
     return self;
 }
-
-
-
-
-
-
 
 
 
@@ -158,15 +72,32 @@
     UIBarButtonItem * addNewSelfyButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(openNewSelfy)];
     
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
-
-    
-  
-    
-    
-    
-
     
 }
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated
+
+{
+    NSLog(@"Will Appear");
+    [self refreshSelfies];
+    
+    
+}
+
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"Did Appear");
+    [self refreshSelfies];
+
+
+}
+
+
+
 
 -(void)openNewSelfy
 
@@ -195,10 +126,6 @@
 
 
 
-
-
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -211,8 +138,35 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+
+
     
     return [selfies count];
+    
+}
+
+-(void)refreshSelfies
+{
+    PFQuery * query = [PFQuery queryWithClassName:@"UserSelfy"];
+    
+//    selfies = [query findObjects];  // syncronous and everything must wait for this to complete before more code runs.  The below makes things asyncronous.
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError *error){
+
+        selfies = objects;
+        
+        [self.tableView reloadData];
+        
+    }];
+
+    
+//  Change Order By Created Date : newest first
+//  after user conntected to selfy : filter only your user's selfies
+    
+    
+    
+    
+    
 }
 
 
@@ -225,17 +179,10 @@
     
         cell = [[SLFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 
-        cell.selfyInfo = selfies[indexPath.row];   //calls the selfies method (setSelfyInfo:(NSDictionary *)selfyInfo) in the tvcell.m
-    
-    
-    
-//        NSDictionary * listItem = selfy[indexPath.row];
-//        cell.textLabel.text = listItem[@"user_id"];
-//        cell.detailTextLabel.text = listItem[@"caption"];
-//        cell.imageView.image = listItem[@"image"];
-    
-//      UIImage * testImage = [UIImage imageNamed:@"JohnYam"];
-//      cell.imageView.image = testImage;
+  
+
+    cell.selfyInfo = selfies[indexPath.row];   //calls the selfies method (setSelfyInfo:(NSDictionary *)selfyInfo) in the tvcell.m
+
     
         
     return cell;
@@ -243,58 +190,6 @@
 }
     
 
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-//- (BOOL)prefersStatusBarHidden { return YES; }
 
 
 @end

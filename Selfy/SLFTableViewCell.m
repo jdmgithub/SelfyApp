@@ -51,32 +51,48 @@
     
         [self.contentView addSubview:caption];
     
-    
-    
     }
     return self;
 }
 
 
 
-- (void)setSelfyInfo:(NSDictionary *)selfyInfo
+- (void)setSelfyInfo:(PFObject *)selfyInfo
 {
     
     _selfyInfo = selfyInfo;
 
-    caption.text = selfyInfo[@"caption"];
+//    caption.text = selfyInfo[@"caption"];
+    caption.text = [selfyInfo objectForKey:@"caption"];
 
-    NSURL * imageURL = [NSURL URLWithString:selfyInfo[@"image"]];
-    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-    UIImage * image = [UIImage imageWithData:imageData];
+    
+//    NSURL * imageURL = [NSURL URLWithString:selfyInfo[@"image"]];
+//    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+//    UIImage * image = [UIImage imageWithData:imageData];
 
+    PFFile * imageFile = [selfyInfo objectForKey:@"image"];
+    
+    [imageFile getDataInBackgroundWithBlock:^(NSData * data, NSError *error){
+        
+    UIImage * image = [UIImage imageWithData:data];
+        
     imageView.image = image;
+        
+    } progressBlock:^(int percentDone) {
+    
+}];
 
-    NSURL * avatarURL = [NSURL URLWithString:selfyInfo[@"avatar"]];
-    NSData * avatarData = [NSData dataWithContentsOfURL:avatarURL];
-    UIImage * avatar = [UIImage imageWithData:avatarData];
+//    UIImage * image = [UIImage imageWithData:imageData];
 
-    avatarView.image = avatar;
+//    imageView.image = image;
+    
+    
+
+//    NSURL * avatarURL = [NSURL URLWithString:selfyInfo[@"avatar"]];
+//    NSData * avatarData = [NSData dataWithContentsOfURL:avatarURL];
+//    UIImage * avatar = [UIImage imageWithData:avatarData];
+//
+//    avatarView.image = avatar;
 
 
 }

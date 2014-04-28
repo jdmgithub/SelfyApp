@@ -38,6 +38,7 @@
 		1B4708701906D97500492026 /* SLFSelfyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B47086F1906D97500492026 /* SLFSelfyViewController.m */; };
 		1B4708721906FFFB00492026 /* cameraIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B4708711906FFFB00492026 /* cameraIcon.png */; };
 		1B499ABC190594030029D117 /* SLFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B499ABB190594030029D117 /* SLFTableViewCell.m */; };
+		1BA4060A190E90EE004D11CB /* magicSquare.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA40609190E90EE004D11CB /* magicSquare.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		1B4708711906FFFB00492026 /* cameraIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cameraIcon.png; sourceTree = "<group>"; };
 		1B499ABA190594030029D117 /* SLFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFTableViewCell.h; sourceTree = "<group>"; };
 		1B499ABB190594030029D117 /* SLFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFTableViewCell.m; sourceTree = "<group>"; };
+		1BA40609190E90EE004D11CB /* magicSquare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = magicSquare.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 		1B47084C190693F300492026 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1BA40609190E90EE004D11CB /* magicSquare.png */,
 				1B1BC131190A9D65002CEE40 /* river.jpg */,
 				1B47084D1906940700492026 /* JefferyMoulds.png */,
 				1B47084F1906966900492026 /* JohnYam.png */,
@@ -311,6 +314,7 @@
 				1B1277E51905891B00D7D11F /* InfoPlist.strings in Resources */,
 				1B47084E1906940700492026 /* JefferyMoulds.png in Resources */,
 				1B1277ED1905891B00D7D11F /* Images.xcassets in Resources */,
+				1BA4060A190E90EE004D11CB /* magicSquare.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
