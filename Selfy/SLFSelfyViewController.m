@@ -151,6 +151,10 @@
     newSelfy[@"caption"] = captionField.text;
     
     newSelfy[@"image"] = imageFile;
+ 
+    newSelfy[@"parent"] = [PFUser currentUser];   // "parent" key denotes a relationship in this case - a convention.
+    
+    
     
  //   [newSelfy saveInBackground];
     
@@ -159,9 +163,11 @@
     
     }];
     
-// connect current user to newSefly as parent : Parse relational data to create a parent
+
     
     
+    
+    // connect current user to newSefly as parent : Parse relational data to create a parent
 }
 
 

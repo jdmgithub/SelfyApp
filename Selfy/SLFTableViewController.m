@@ -77,22 +77,10 @@
 
 
 
-
--(void)viewWillAppear:(BOOL)animated
-
-{
-    NSLog(@"Will Appear");
-    [self refreshSelfies];
-    
-    
-}
-
-
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"Did Appear");
     [self refreshSelfies];
-
 
 }
 
@@ -150,6 +138,15 @@
     PFQuery * query = [PFQuery queryWithClassName:@"UserSelfy"];
     
 //    selfies = [query findObjects];  // syncronous and everything must wait for this to complete before more code runs.  The below makes things asyncronous.
+
+ // filtering and ordering
+    
+    [query orderByDescending:@"createdAT"];
+    
+    [query whereKey:@"parent" equalTo:[PFUser currentUser]];
+    
+    
+// saving
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * objects, NSError *error){
 

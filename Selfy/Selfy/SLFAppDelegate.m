@@ -55,6 +55,8 @@
 
     
 // Launches different controllers if/if not logged in.  Only have username if logged in.  Logged in goes to TVC.  If Not, Launch VC.
+
+    username = nil;
     
     if (username == nil)
     {
