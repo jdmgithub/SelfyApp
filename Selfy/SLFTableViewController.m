@@ -73,6 +73,10 @@
     
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
     
+    
+    UIBarButtonItem * editUserButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editExistingUser)];
+    
+    self.navigationItem.leftBarButtonItem = editUserButton;
 }
 
 
@@ -99,14 +103,18 @@
     nc.navigationBar.barTintColor = BLUE_COLOR;
 //    nc.navigationBar.translucent = NO;
     
-
-
-
-    
     [self.navigationController presentViewController:nc animated:YES completion:^{
     
         
     }];
+
+}
+
+
+
+-(void)editExistingUser
+{
+
     
 
 }

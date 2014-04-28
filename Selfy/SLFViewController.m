@@ -16,7 +16,9 @@
     UITextField * username;
     UITextField * password;
     UIButton * submit;
+    UIButton * signUpButton;
     UIView * newForm;
+    UIView * signUpForm;
     
 }
 
@@ -84,6 +86,23 @@
 
         
         [newForm addSubview:submit];
+        
+        
+     
+
+        
+        signUpButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 260, 160, 30)];
+        signUpButton.backgroundColor = [UIColor lightGrayColor];
+        signUpButton.layer.cornerRadius = 10;
+        [signUpButton setTitle:@" Sign Up" forState:normal];
+        [signUpButton addTarget:self action:@selector(signUpForm) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        [newForm addSubview:signUpButton];
+
+        
+        
+        
  
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen)];
         [self.view addGestureRecognizer:tap];
@@ -201,9 +220,26 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+
+
+-(void)signUpForm
+
+{
+    
 
     
+    signUpForm = [[UIView alloc] initWithFrame:self.view.frame];
+    signUpForm.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:signUpForm];
+
+    
+    
 }
+
+
+
 
 - (void)viewDidLoad
 {
