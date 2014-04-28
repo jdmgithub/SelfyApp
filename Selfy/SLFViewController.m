@@ -18,7 +18,18 @@
     UIButton * submit;
     UIButton * signUpButton;
     UIView * newForm;
+
     UIView * signUpForm;
+    UITextField * newUserDisplayName;
+    UITextField * newUserName;
+    UITextField * newUserPassword;
+    UITextField * newUserEmail;
+    UIImage * newUserAvatar;
+    
+    
+
+
+    
     
 }
 
@@ -213,6 +224,88 @@
 
 
 
+-(void)signUpForm
+
+{
+    
+    signUpForm = [[UIView alloc] initWithFrame:self.view.frame];
+    signUpForm.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:signUpForm];
+
+
+//    UIImage * newUserAvatar;
+
+    
+    newUserDisplayName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 90, 160, 30)];
+    newUserDisplayName.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
+    newUserDisplayName.layer.cornerRadius = 6;
+    newUserDisplayName.placeholder = @"Enter A Display Name";  // placeholder text
+    newUserDisplayName.tintColor =[UIColor blackColor];  // changes cursor color
+    newUserDisplayName.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+    newUserDisplayName.leftViewMode = UITextFieldViewModeAlways;
+    newUserDisplayName.keyboardType = UIKeyboardTypeTwitter;
+    newUserDisplayName.autocapitalizationType = NO;
+    [signUpForm addSubview:newUserDisplayName];
+
+    newUserName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 140, 160, 30)];
+    newUserName.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
+    newUserName.layer.cornerRadius = 6;
+    newUserName.placeholder = @"Enter A User Name";  // placeholder text
+    newUserName.tintColor =[UIColor blackColor];  // changes cursor color
+    newUserName.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+    newUserName.leftViewMode = UITextFieldViewModeAlways;
+    newUserName.keyboardType = UIKeyboardTypeTwitter;
+    newUserName.autocapitalizationType = NO;
+    [signUpForm addSubview:newUserName];
+
+    newUserPassword = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 190, 160, 30)];
+    newUserPassword.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
+    newUserPassword.layer.cornerRadius = 6;
+    newUserPassword.placeholder = @"Enter A Password";  // placeholder text
+    newUserPassword.tintColor =[UIColor blackColor];  // changes cursor color
+    newUserPassword.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+    newUserPassword.leftViewMode = UITextFieldViewModeAlways;
+    newUserPassword.keyboardType = UIKeyboardTypeTwitter;
+    newUserPassword.autocapitalizationType = NO;
+    [signUpForm addSubview:newUserPassword];
+
+    newUserEmail = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 190, 160, 30)];
+    newUserEmail.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
+    newUserEmail.layer.cornerRadius = 6;
+    newUserEmail.placeholder = @"Enter A Password";  // placeholder text
+    newUserEmail.tintColor =[UIColor blackColor];  // changes cursor color
+    newUserEmail.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
+    newUserEmail.leftViewMode = UITextFieldViewModeAlways;
+    newUserEmail.keyboardType = UIKeyboardTypeTwitter;
+    newUserEmail.autocapitalizationType = NO;
+    [signUpForm addSubview:newUserEmail];
+    
+    newUserDisplayName.delegate = self;
+    newUserName.delegate = self;
+    newUserPassword.delegate = self;
+    newUserEmail.delegate = self;
+
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signUpTapScreen)];
+    [self.view addGestureRecognizer:tap];
+    
+    
+}
+
+
+-(void)signUpTapScreen
+{
+    [newUserDisplayName resignFirstResponder];
+    [newUserName resignFirstResponder];
+    [newUserPassword resignFirstResponder];
+    [newUserEmail resignFirstResponder];
+    
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        
+        signUpForm.frame = self.view.frame;
+        
+    }];
+}
 
 // this method, along with the delegate in .h and the password.delegate = self drops the keyboard
 - (BOOL) textFieldShouldReturn:(UITextField *)textField
@@ -220,22 +313,6 @@
     [textField resignFirstResponder];
     
     return YES;
-}
-
-
-
--(void)signUpForm
-
-{
-    
-
-    
-    signUpForm = [[UIView alloc] initWithFrame:self.view.frame];
-    signUpForm.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:signUpForm];
-
-    
-    
 }
 
 
