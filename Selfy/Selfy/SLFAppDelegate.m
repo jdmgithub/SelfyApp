@@ -9,7 +9,7 @@
 #import "SLFAppDelegate.h"
 #import "SLFTableViewController.h"
 #import <Parse/Parse.h>
-#import "SLFViewController.h"
+#import "SLFLoginViewController.h"
 #import "SLFSelfyViewController.h"
 
 @implementation SLFAppDelegate
@@ -60,7 +60,7 @@
     
     if (username == nil)
     {
-    navController = [[UINavigationController alloc] initWithRootViewController:[[SLFViewController alloc] initWithNibName:nil bundle:nil]];
+    navController = [[UINavigationController alloc] initWithRootViewController:[[SLFLoginViewController alloc] initWithNibName:nil bundle:nil]];
         navController.navigationBarHidden = YES;
 
     } else {
