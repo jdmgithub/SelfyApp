@@ -239,7 +239,7 @@
 //    UIImage * newUserAvatar;
 
     
-    newUserDisplayName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 90, 160, 30)];
+    newUserDisplayName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 80, 160, 30)];
     newUserDisplayName.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
     newUserDisplayName.layer.cornerRadius = 6;
     newUserDisplayName.placeholder = @"Enter A Display Name";  // placeholder text
@@ -250,7 +250,7 @@
     newUserDisplayName.autocapitalizationType = NO;
     [signUpForm addSubview:newUserDisplayName];
 
-    newUserName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 140, 160, 30)];
+    newUserName = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 130, 160, 30)];
     newUserName.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
     newUserName.layer.cornerRadius = 6;
     newUserName.placeholder = @"Enter A User Name";  // placeholder text
@@ -261,7 +261,7 @@
     newUserName.autocapitalizationType = NO;
     [signUpForm addSubview:newUserName];
 
-    newUserPassword = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 190, 160, 30)];
+    newUserPassword = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 180, 160, 30)];
     newUserPassword.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
     newUserPassword.layer.cornerRadius = 6;
     newUserPassword.placeholder = @"Enter A Password";  // placeholder text
@@ -269,13 +269,14 @@
     newUserPassword.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
     newUserPassword.leftViewMode = UITextFieldViewModeAlways;
     newUserPassword.keyboardType = UIKeyboardTypeTwitter;
+    newUserPassword.secureTextEntry = YES;
     newUserPassword.autocapitalizationType = NO;
     [signUpForm addSubview:newUserPassword];
 
-    newUserEmail = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 240, 160, 30)];
+    newUserEmail = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 230, 160, 30)];
     newUserEmail.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
     newUserEmail.layer.cornerRadius = 6;
-    newUserEmail.placeholder = @"Enter A Password";  // placeholder text
+    newUserEmail.placeholder = @"Enter Email";  // placeholder text
     newUserEmail.tintColor =[UIColor blackColor];  // changes cursor color
     newUserEmail.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
     newUserEmail.leftViewMode = UITextFieldViewModeAlways;
@@ -289,7 +290,7 @@
     newUserEmail.delegate = self;
 
 
-    newSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 290, 160, 30)];
+    newSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 280, 160, 30)];
     newSignUpButton.backgroundColor = [UIColor lightGrayColor];
     newSignUpButton.layer.cornerRadius = 10;
     [newSignUpButton setTitle:@" Sign Up" forState:normal];
@@ -302,7 +303,8 @@
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signUpTapScreen)];
     [self.view addGestureRecognizer:tap];
 
-    
+    signUpForm.frame = CGRectMake(0, -50, 320, self.view.frame.size.height);
+
 }
 
 
@@ -313,15 +315,25 @@
 
 //    PFFile * imageFile = [PFFile fileWithName:@"image.png" data:avatarData];
     
-    PFObject * newUserCreation = [PFObject objectWithClassName:@"UserSelfy"];
 
+    PFUser * newUserCreation = [PFUser objectWithClassName:@"UserSelfy"];
     
     newUserCreation[@"displayName"] = newUserDisplayName.text;
-    newUserCreation[@"email"] = newUserEmail.text;
+    newUserCreation[@"user"] = newUserName.text;
     newUserCreation[@"password"] = newUserPassword.text;
     newUserCreation[@"email"] = newUserEmail.text;
     
 //    newUserCreation[@"image"] = imageFile;
+
+    [newUserCreation signUp];
+    
+//    [newUserCreation signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    
+//    }];
+    
+//    [newUserCreation saveInBackgroundWithBlock:^(BOOL succeed, NSError * error) {
+//        [self cancelNewSelfy];
+
 }
 
 
