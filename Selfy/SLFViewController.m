@@ -25,7 +25,7 @@
     UITextField * newUserPassword;
     UITextField * newUserEmail;
     UIImage * newUserAvatar;
-    
+    UIButton * newSignUpButton;
     
 
 
@@ -272,7 +272,7 @@
     newUserPassword.autocapitalizationType = NO;
     [signUpForm addSubview:newUserPassword];
 
-    newUserEmail = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 190, 160, 30)];
+    newUserEmail = [[UITextField alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 240, 160, 30)];
     newUserEmail.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.05];
     newUserEmail.layer.cornerRadius = 6;
     newUserEmail.placeholder = @"Enter A Password";  // placeholder text
@@ -288,12 +288,45 @@
     newUserPassword.delegate = self;
     newUserEmail.delegate = self;
 
+
+    newSignUpButton = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH /2) - 80, 290, 160, 30)];
+    newSignUpButton.backgroundColor = [UIColor lightGrayColor];
+    newSignUpButton.layer.cornerRadius = 10;
+    [newSignUpButton setTitle:@" Sign Up" forState:normal];
+    [newSignUpButton addTarget:self action:@selector(newUserCreation) forControlEvents:UIControlEventTouchUpInside];
+    [signUpForm addSubview:newSignUpButton];
+    
+    
+    
+    
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signUpTapScreen)];
     [self.view addGestureRecognizer:tap];
 
-
     
 }
+
+
+
+-(void)newUserCreation
+{
+//    NSData * avatarData = UIImagePNGRepresentation(imageView.image);
+
+//    PFFile * imageFile = [PFFile fileWithName:@"image.png" data:avatarData];
+    
+    PFObject * newUserCreation = [PFObject objectWithClassName:@"UserSelfy"];
+
+    
+    newUserCreation[@"displayName"] = newUserDisplayName.text;
+    newUserCreation[@"email"] = newUserEmail.text;
+    newUserCreation[@"password"] = newUserPassword.text;
+    newUserCreation[@"email"] = newUserEmail.text;
+    
+//    newUserCreation[@"image"] = imageFile;
+}
+
+
+
+
 
 
 -(void)signUpTapScreen
