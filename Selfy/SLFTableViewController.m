@@ -107,13 +107,14 @@
     nc.navigationBar.barTintColor = BLUE_COLOR;
     nc.navigationBar.translucent = NO;
     
+   
+    [self.navigationController.view addSubview:settingsVC.view];
     
-    [self.navigationController presentViewController:nc animated:YES completion:^{
+ // slides up
+    
+ //   [self.navigationController presentViewController:nc animated:YES completion:^{
   
-        
-        
-    
-    }];
+//    }];
 
 
     
