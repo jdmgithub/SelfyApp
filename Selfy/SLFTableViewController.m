@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "SLFSelfyViewController.h"
 #import "SLFNewNavigationController.h"
+#import "SLFSettingsButton.h"
+#import "SLFSettingsViewController.h"
 
 @interface SLFTableViewController ()
 
@@ -20,12 +22,15 @@
 
 
 {
-    UIButton * settingsButton;
+    UIButton * settings;
     UIButton * editButton;
     NSArray * selfies;
     
     UIView * selfyView;
     UIImage * selfyImage;
+    
+//    UIButton * settingButton;
+    UIButton * settingsView;
 }
 
 
@@ -73,9 +78,50 @@
     
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
     
+
+    settingsView = [[SLFSettingsButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+//    settingsView.backgroundColor = [UIColor grayColor];
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithCustomView:settingsView];
+    
+
+    self.navigationItem.leftBarButtonItem = settingsButton;
+
+    
+    [settingsView addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
+     
+    
 }
 
 
+
+
+-(void)openSettings
+
+{
+
+    SLFSettingsViewController * settingsVC = [[SLFSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    
+    // created a new navigation controller to slide up
+    SLFNewNavigationController * nc = [[SLFNewNavigationController alloc] initWithRootViewController:settingsVC];
+    
+    nc.navigationBar.barTintColor = BLUE_COLOR;
+    nc.navigationBar.translucent = NO;
+    
+    
+    [self.navigationController presentViewController:nc animated:YES completion:^{
+  
+        
+        
+    
+    }];
+
+
+    
+
+    
+    
+    
+}
 
 -(void)viewDidAppear:(BOOL)animated
 {

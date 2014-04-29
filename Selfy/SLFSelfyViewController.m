@@ -220,8 +220,22 @@
     cancelNewSelfyButton.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = cancelNewSelfyButton;
 
+
+
+    
+    
+    
+    
+    
     [self setNeedsStatusBarAppearanceUpdate];
     
+}
+
+-(void)changeSettings
+
+{
+
+
 }
 
 
