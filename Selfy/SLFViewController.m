@@ -110,14 +110,17 @@
         
         
         [newForm addSubview:signUpButton];
-
-        
-        
         
  
         UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapScreen)];
         [self.view addGestureRecognizer:tap];
     
+
+        
+        
+        
+        
+        
     }
     return self;
 }
@@ -287,7 +290,8 @@
 
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signUpTapScreen)];
     [self.view addGestureRecognizer:tap];
-    
+
+
     
 }
 
