@@ -108,19 +108,21 @@
     nc.navigationBar.translucent = NO;
     
    
-    [self.navigationController.view addSubview:settingsVC.view];
+//    [self.navigationController.view addSubview:settingsVC.view];
     
  // slides up
     
- //   [self.navigationController presentViewController:nc animated:YES completion:^{
+//    [self.navigationController presentViewController:nc animated:YES completion:^{
   
 //    }];
 
+//  // slides navigation viewer to the left
+    [UIView animateWithDuration:0.2 animations:^{
+        self.navigationController.view.frame = CGRectMake(SCREEN_WIDTH -50, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+    }];
 
     
-
-    
-    
+    [self.navigationController.view addSubview:settingsVC.view];
     
 }
 
