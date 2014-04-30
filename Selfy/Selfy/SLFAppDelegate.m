@@ -22,13 +22,13 @@
 
     
 // Jo's App Key for Class
-    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
-                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
+//    [Parse setApplicationId:@"H1JHLiA7kFRmIWvtbkHDcnA1Caj4UofHxRx6UZAB"
+//                  clientKey:@"dKLyXccYHUy1MXNgrdR2Sq5b1fNQoTr4clSXVd3p"];
  
     
  // My App Key
-//    [Parse setApplicationId:@"vixMElOFMEOQF4zumzPtumQ2LzuSdSn1vMxxANSj"
-//                  clientKey:@"jQxPq82XVQfEFjXgoViMkctPIqfRDTc8jaoE0BfA"];
+    [Parse setApplicationId:@"vixMElOFMEOQF4zumzPtumQ2LzuSdSn1vMxxANSj"
+                  clientKey:@"jQxPq82XVQfEFjXgoViMkctPIqfRDTc8jaoE0BfA"];
     
     
     
@@ -56,7 +56,7 @@
     
 // Launches different controllers if/if not logged in.  Only have username if logged in.  Logged in goes to TVC.  If Not, Launch VC.
 
-    username = nil;
+//    username = nil;
     
     if (username == nil)
     {

@@ -12,6 +12,10 @@
 #import "SLFSelfyViewController.h"
 #import "SLFNewNavigationController.h"
 
+#import "SLFSettingsViewController.h"
+#import "SLFSettingsButton.h"
+
+
 @interface SLFTableViewController ()
 
 @end
@@ -20,12 +24,16 @@
 
 
 {
-    UIButton * settingsButton;
+ //   UIButton * settingsButton;
     UIButton * editButton;
     NSArray * selfies;
     
     UIView * selfyView;
     UIImage * selfyImage;
+    SLFSettingsButton * settingsButtonView;
+    SLFSettingsViewController * settingsVC;
+    
+
 }
 
 
@@ -42,9 +50,7 @@
         
         self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
         
-        
         self.tableView.rowHeight = self.tableView.frame.size.width + 100;
-
       
         selfyView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 280, 180)];
         selfyView.backgroundColor = [UIColor lightGrayColor];
@@ -72,6 +78,23 @@
     UIBarButtonItem * addNewSelfyButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(openNewSelfy)];
     
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
+    
+    settingsButtonView = [[SLFSettingsButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+
+//    settingsButtonView.tintColor = BLUE_COLOR;
+
+
+    settingsButtonView.toggledTintColor = [UIColor redColor];
+    
+    
+    UIBarButtonItem * settingsButton = [[UIBarButtonItem alloc] initWithCustomView:settingsButtonView];
+    
+    self.navigationItem.leftBarButtonItem = settingsButton;
+    
+    [settingsButtonView addTarget:self action:@selector(openSettings) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
     
 }
 
@@ -107,26 +130,68 @@
 }
 
 
+-(void)openSettings
+
+{
+//calling the toggle method ie. the state
+    [settingsButtonView toggle];
+    
+// using the variable in a bool to be wither -52 or 0    If X is toggled use -52 or if X use 0
+    int X = [settingsButtonView isToggled] ? SCREEN_WIDTH - 52 : 0;
+    
+    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        
+        self.navigationController.view.frame = CGRectMake(X, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        
+    } completion:^(BOOL finished) {
+        
+        if(![settingsButtonView isToggled])
+        {
+            [settingsVC.view removeFromSuperview];   // saves memory by removing it if not needed
+        
+        }
+        
+    }];
+
+ 
+    if ([settingsButtonView isToggled])
+    {
+        // only inits if clicked... only if needed;  saves memory
+        if (settingsVC == nil) settingsVC = [[SLFSettingsViewController alloc] initWithNibName:nil bundle:nil];
+        
+        settingsVC.view.frame = CGRectMake(52 - SCREEN_WIDTH, 0, SCREEN_WIDTH - 52, SCREEN_HEIGHT);
+
+        [self.navigationController.view addSubview:settingsVC.view];
+    
+    }
+
+}
+
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
 
-
     
     return [selfies count];
     
 }
+
+
+
+
 
 -(void)refreshSelfies
 {
@@ -155,11 +220,11 @@
 //  Change Order By Created Date : newest first
 //  after user conntected to selfy : filter only your user's selfies
     
-    
-    
-    
+   
     
 }
+
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,12 +236,9 @@
     
         cell = [[SLFTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
 
-  
 
     cell.selfyInfo = selfies[indexPath.row];   //calls the selfies method (setSelfyInfo:(NSDictionary *)selfyInfo) in the tvcell.m
-
     
-        
     return cell;
     
 }

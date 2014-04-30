@@ -7,6 +7,7 @@
 //
 
 #import "SLFTableViewCell.h"
+#import "Parse/Parse.h"
 
 @implementation SLFTableViewCell
 
@@ -40,7 +41,7 @@
         avatarView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 320, 60, 60)];
         avatarView.layer.cornerRadius = 30;
         avatarView.layer.masksToBounds = YES;
-
+        avatarView.backgroundColor = [UIColor lightGrayColor];
         [self.contentView addSubview:avatarView];
         
 // selfy caption
@@ -62,13 +63,7 @@
     
     _selfyInfo = selfyInfo;
 
-//    caption.text = selfyInfo[@"caption"];
     caption.text = [selfyInfo objectForKey:@"caption"];
-
-    
-//    NSURL * imageURL = [NSURL URLWithString:selfyInfo[@"image"]];
-//    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
-//    UIImage * image = [UIImage imageWithData:imageData];
 
     PFFile * imageFile = [selfyInfo objectForKey:@"image"];
     
@@ -82,19 +77,21 @@
     
 }];
 
-//    UIImage * image = [UIImage imageWithData:imageData];
-
-//    imageView.image = image;
+    PFUser * user = [selfyInfo objectForKey:@"parent"];
     
+    [user fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        PFFile * avatarFile = [object objectForKey:@"avatar"];
+        
+        [avatarFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            
+            avatarView.image = [UIImage imageWithData:data];
+            
+            
+        }];
+        
+    }];
     
-
-//    NSURL * avatarURL = [NSURL URLWithString:selfyInfo[@"avatar"]];
-//    NSData * avatarData = [NSData dataWithContentsOfURL:avatarURL];
-//    UIImage * avatar = [UIImage imageWithData:avatarData];
-//
-//    avatarView.image = avatar;
-
-
+ 
 }
 
 

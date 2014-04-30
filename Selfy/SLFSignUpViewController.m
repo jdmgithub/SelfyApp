@@ -23,7 +23,7 @@
 //    UITextField * displayNameField;
 //    UITextField * passwordField;
 //    UITextField * emailField;
-    UIImageView * avatar;
+//    UIImageView * avatar;
 
     float signupOrigY;
     
@@ -109,7 +109,15 @@
 -(void)signUP
 
 {
+    [self hideKeyboard];
+    
     PFUser * user = [PFUser user];
+    
+    UIImage * avatarImage = [UIImage imageNamed:@"JefferyMoulds"];
+    
+    NSData * imageData = UIImagePNGRepresentation(avatarImage);
+    
+    PFFile * imageFile = [PFFile fileWithName:@"avatar.png" data:imageData];
     
     
 //    UITextField * username = (UITextField *)fields[0];
@@ -118,7 +126,10 @@
     user.email = ((UITextField *)fields[3]).text;
 
     user[@"dislplay"] = ((UITextField *)fields[2]).text;
-
+    user[@"avatar"] = imageFile;
+    
+    
+    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
        if (error == nil)
