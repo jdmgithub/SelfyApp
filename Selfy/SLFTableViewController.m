@@ -79,6 +79,8 @@
     
     self.navigationItem.rightBarButtonItem = addNewSelfyButton;
     
+
+    
     settingsButtonView = [[SLFSettingsButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
 
 //    settingsButtonView.tintColor = BLUE_COLOR;

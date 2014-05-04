@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 
-@interface SLFSelfyViewController : UIViewController  <UITextViewDelegate>
+@interface SLFSelfyViewController : UIViewController  <UITextViewDelegate, UIPickerViewDelegate>
 
 
 @end

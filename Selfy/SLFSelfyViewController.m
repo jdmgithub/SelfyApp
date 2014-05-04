@@ -10,21 +10,29 @@
 #import "Parse/Parse.h"
 
 
-@interface SLFSelfyViewController ()
+@interface SLFSelfyViewController ()  <UIImagePickerControllerDelegate>
 
-{
+@property (nonatomic) UIImage * originalImage;
 
-    UITextView * captionField;
-    UIButton * submit;
-    UIButton * cancel;
-    UIImageView * cameraButton;   
-    UIView * newForm;
-    UIImageView * imageView;
-}
+
+
 
 @end
 
 @implementation SLFSelfyViewController
+
+{
+    
+    UITextView * captionField;
+    UIButton * submit;
+    UIButton * cancel;
+    UIImageView * cameraButton;
+    UIView * newForm;
+    UIImageView * imageView;
+}
+
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -101,25 +109,34 @@
     [newForm addSubview:submit];
     
     
-    cancel = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 20, 30, 30)];
-    cancel.backgroundColor = [UIColor lightGrayColor];
-    cancel.layer.cornerRadius = 15;
-    [cancel setTitle:@"X" forState:normal];
-    
-    [newForm addSubview:cancel];
+//    cancel = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 50, 20, 30, 30)];
+//    cancel.backgroundColor = [UIColor lightGrayColor];
+//    cancel.layer.cornerRadius = 15;
+//    [cancel setTitle:@"X" forState:normal];
+//    
+//    [newForm addSubview:cancel];
     
 // not used now.  Using imageview above now
-    cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(35, 80, 250, 250)];
-    cameraButton.backgroundColor = [UIColor lightGrayColor];
-    cameraButton.layer.cornerRadius = 30;
-    [cameraButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [cameraButton.layer setBorderWidth:2.0];
-    cameraButton.userInteractionEnabled = YES;
-    
-    cameraButton.image = [UIImage imageNamed:@"cameraIcon"];
-    
-    
+//    cameraButton = [[UIImageView alloc] initWithFrame:CGRectMake(35, 80, 250, 250)];
+//    cameraButton.backgroundColor = [UIColor lightGrayColor];
+//    cameraButton.layer.cornerRadius = 30;
+//    [cameraButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+//    [cameraButton.layer setBorderWidth:2.0];
+//    cameraButton.userInteractionEnabled = YES;
+//    
+//    cameraButton.image = [UIImage imageNamed:@"cameraIcon"];
+
 //    [newForm addSubview:cameraButton];
+    
+
+
+    
+
+    
+    
+    
+    
+    
     
     
 
@@ -221,6 +238,14 @@
     self.navigationItem.rightBarButtonItem = cancelNewSelfyButton;
 
     [self setNeedsStatusBarAppearanceUpdate];
+
+    
+
+    
+    UIBarButtonItem * libraryButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(photoLibrary)];
+    libraryButton.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem = libraryButton;
+    
     
 }
 
@@ -244,6 +269,43 @@
 // stuff wont happen/appear until animation is done.
 
 }
+
+
+-(void)photoLibrary
+{
+
+    
+
+    
+}
+
+
+-(void)choosePhoto
+
+{
+    UIImagePickerController * photoLibrary = [[UIImagePickerController alloc] init];
+    
+    photoLibrary.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    photoLibrary.delegate = self;
+    
+    photoLibrary.allowsEditing = YES;
+    
+    [self presentViewController:photoLibrary animated:YES completion:nil];
+    
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+
+{   NSLog(@"%@", info);
+    
+    self.originalImage = info[UIImagePickerControllerOriginalImage];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+
 
 
 
