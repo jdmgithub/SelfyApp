@@ -164,7 +164,7 @@
     
     UIImage * image = [self filterImage:self.imageToFilter filterName:self.currentFilter];
     
-    [self.delegate updateCurrentImageWithFilteredImage:image];
+
 //    [self.delegate updateCurrentImageWithFilteredImage:image];
     
     
