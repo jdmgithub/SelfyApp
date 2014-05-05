@@ -29,6 +29,9 @@
     UIImageView * cameraButton;
     UIView * newForm;
     UIImageView * imageView;
+    
+    UIScrollView * scrollView;
+
 }
 
 
@@ -48,6 +51,13 @@
         
         UITapGestureRecognizer * cameraImageTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cameraTap)];
         [cameraButton addGestureRecognizer:cameraImageTap];
+        
+        
+        
+        
+        scrollView = [[UIScrollView alloc] init];
+   
+        [self.view addSubview:scrollView];
         
         
 // shift up view with keyboard popup - makes a view of the screen with all its objects and shifts them.  So you dont have to shift up all the objects indivudially.
@@ -260,6 +270,59 @@
     [self createForm];
 
 
+    
+    int numButtons = (int) [scrollView.subviews count];
+    NSLog(@"currently scrollview has %d buttons", numButtons);
+    
+    
+//    for (NSString * filterName in filterNames)
+//    {
+//        int i = (int)[filterNames indexOfObject:filterName];
+//        int x = (wh + 10) * i + 10;
+//        
+//        UIButton * filterButton = [[UIButton alloc] initWithFrame:CGRectMake(x, 10, wh, wh)];
+//        filterButton.tag = i;
+//        filterButton.backgroundColor = [UIColor whiteColor];
+//        
+//        [filterButton addTarget:self action:@selector(switchFilter:) forControlEvents:UIControlEventTouchUpInside];
+//        [filterButtons addObject:filterButton];
+//        
+//        [scrollView addSubview:filterButton];
+//    }
+//    
+//    scrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+//    scrollView.contentSize = CGSizeMake((wh + 10) * [filterNames count] + 10, self.view.frame.size.height);
+//    
+//    
+//    
+//    
+//    UIScrollView * imageScroller = [[UIScrollView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 100, SCREEN_WIDTH, 100)];
+//    imageScroller.pagingEnabled = YES;
+//    [imageScroller setAlwaysBounceVertical:NO];
+//    imageScroller.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.8];
+//    
+//    NSInteger numberofViews = 20;
+//    for (int i = 0; i < numberofViews; i++) {
+//        button = [[UIButton alloc] initWithFrame:CGRectMake((i*90), 10, 80, 80)]; // X adds pad each alloc/init
+//        button.backgroundColor = [UIColor whiteColor];
+//        [imageScroller addSubview:button];
+//    }
+//    
+//    imageScroller.contentSize = CGSizeMake((button.frame.size.width) * numberofViews, 100);
+//    [self.view addSubview:imageScroller];
+//    
+//    
+//    UIView * viewAboveScroller = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 140, SCREEN_WIDTH, 40)];
+//    
+//    
+//    
+//    
+//    viewAboveScroller.backgroundColor = [UIColor lightGrayColor];
+//    [self.view addSubview:viewAboveScroller];
+
+    
+    
+    
 }
 
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0D68001917A812002A1A1B /* SLFFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B0D67FF1917A812002A1A1B /* SLFFilterViewController.m */; };
 		1B1277DB1905891B00D7D11F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1277DA1905891B00D7D11F /* Foundation.framework */; };
 		1B1277DD1905891B00D7D11F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1277DC1905891B00D7D11F /* CoreGraphics.framework */; };
 		1B1277DF1905891B00D7D11F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B1277DE1905891B00D7D11F /* UIKit.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B0D67FE1917A812002A1A1B /* SLFFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLFFilterViewController.h; sourceTree = "<group>"; };
+		1B0D67FF1917A812002A1A1B /* SLFFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLFFilterViewController.m; sourceTree = "<group>"; };
 		1B1277D71905891B00D7D11F /* Selfy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Selfy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B1277DA1905891B00D7D11F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B1277DC1905891B00D7D11F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +147,8 @@
 		1B1277CE1905891B00D7D11F = {
 			isa = PBXGroup;
 			children = (
+				1B0D67FE1917A812002A1A1B /* SLFFilterViewController.h */,
+				1B0D67FF1917A812002A1A1B /* SLFFilterViewController.m */,
 				1B4F91C41916706E000C91D9 /* SLFPhotoLibraryButton.h */,
 				1B4F91C51916706E000C91D9 /* SLFPhotoLibraryButton.m */,
 				1B87C29219112E2B00894A95 /* SLFSettingsButton.h */,
@@ -363,6 +368,7 @@
 				1B4708701906D97500492026 /* SLFSelfyViewController.m in Sources */,
 				1BEECFCF190FDD2D00C51648 /* SLFSignUpViewController.m in Sources */,
 				1B12780B1905894A00D7D11F /* SLFTableViewController.m in Sources */,
+				1B0D68001917A812002A1A1B /* SLFFilterViewController.m in Sources */,
 				1B87C29119112D1100894A95 /* SLFSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
